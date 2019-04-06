@@ -10,12 +10,11 @@ void Merge(int a[],int left,int mid,int right)
 	int *l1 = new int[length1];
 	int *l2 = new int[length2];
  
-	for (int i = 0; i < length1; ++i)
-	{
+	for (int i = 0; i < length1; ++i) {
 		l1[i] = a[left+i];
 	}
-	for (int j = 0; j < length2; ++j)
-	{
+	
+	for (int j = 0; j < length2; ++j) {
 		l2[j] = a[j+mid+1];
 	}
  
@@ -23,30 +22,18 @@ void Merge(int a[],int left,int mid,int right)
 	int i = 0,j = 0;
 	int k = length1;
 	//比较两个序列的重合部分，进行排序
-	while (i<length1 && j<length2)
-	{
+	while (i<length1 && j<length2) {
 		if (l1[i] < l2[j])
-		{
 			a[left++] = l1[i++];
-		}
 		else
-		{
-			a[left++] = l2[j++];
-			//因为l2[j]大于l1[i],所以l2[j]肯定大于[0,length-1]之中[0,i]之间的所有数，产生逆序对
-			if (l2[j] > l1[i])
-			{
-				_count +=  length1-i+1;
-			}		
-		}
+			a[left++] = l2[j++];	
 	}
 	//两序列的剩余部分分别放于结尾
-	while (i<length1)
-	{
+	while (i<length1) {
 		a[left++] = l1[i++];
 	}
  
-	while (j<length2)
-	{
+	while (j<length2) {
 		a[left++] = l2[j++];
 	}
  
@@ -56,8 +43,7 @@ void Merge(int a[],int left,int mid,int right)
 }
 void Merge_sort(int a[],int left,int right)
 {
-	if (left < right)
-	{
+	if (left < right) {
 		int mid = (left+right)/2;//首先进行分区，然后递归操作
 		Merge_sort(a,left,mid);
 		Merge_sort(a,mid+1,right);//第一次将其分为两个区间，进行合并操作
