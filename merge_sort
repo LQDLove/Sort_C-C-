@@ -65,8 +65,3 @@ void Merge_sort(int a[],int left,int right)
 	}
 }
 
---------------------- 
-作者：MISAYAONE 
-来源：CSDN 
-原文：https://blog.csdn.net/misayaaaaa/article/details/66478422 
-版权声明：本文为博主原创文章，转载请附上博文链接！
