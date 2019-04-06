@@ -1,0 +1,22 @@
+//Shell排序
+ 
+void shell_sort(int a[], int n)
+{
+	int gap = n/2;  //初始值定位总长的一半
+	while(gap>0)	{   //终止条件
+		for(int i=0; i<gap; i++) {
+			for(int j = i+gap; j<n; j=j+gap) {
+				if(a[j]<a[j-gap]) {     //采用了插入排序的方法
+					int temp = a[j];
+					int k = j-gap;
+					while(k>=0 && a[k]>temp) {   //插入到合适的位置
+						a[k+gap] = a[k];
+						k = k-gap;
+					}
+					a[k+gap] = temp;  //插入到基准位置
+				}
+			}
+		}
+    gap = gap/2;  //用对半的方式
+	}
+}
